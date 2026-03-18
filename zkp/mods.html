@@ -86,91 +86,74 @@
             <h1>All Mods & Charts</h1>
             <p class="subtitle">The full list of my creations.</p>
         </div>
-
-        <!-- TABS — agrega tab-btn y tab-panel cuando tengas mas de 12 mods -->
+        <!-- TABS -->
         <div class="tabs-bar">
-            <button class="tab-btn active" onclick="switchTab('tab1', this)">Mods 1</button>
+            <button class="tab-btn active" onclick="switchTab('tab1', this)">All Mods</button>
+            <!-- Agrega más tabs aquí cuando tengas muchos más mods -->
         </div>
 
+        <!-- ====================== TAB PRINCIPAL ====================== -->
         <div class="tab-panel active" id="tab1">
             <div class="mods-grid">
 
-                <!-- CARD: 2ND HALF -->
+                <!-- === CARD DESTACADO GRANDE: Titular 2026 === -->
+                <div class="card card-featured" onclick="location.href='mods/titular-2026.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/titular-2026.png');background-size:cover;background-position:center;"></div>
+                    <div class="card-info">
+                        <h3>Titular 2026 (Stickmin)</h3>
+                        <p>Fanmade Stickmin vibes en 2026<br><span class="diff-badge diff-normal">NORMAL</span></p>
+                    </div>
+                </div>
+
+                <!-- === Cards pequeños alrededor (el grid los acomoda automáticamente) === -->
                 <div class="card card-small" onclick="location.href='mods/2nd-half.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/2nd-half.png');background-size:cover;background-position:center;"></div>
+                    <div class="image-placeholder" style="background-image:url('img/mods/2nd-half.png');"></div>
                     <div class="card-info"><h4>2ND HALF <span class="diff-badge diff-hard">HARD</span></h4></div>
                 </div>
 
-                <!-- CARD: GREEN -->
-                <div class="card card-small" onclick="location.href='mods/green.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/green.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>GREEN <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Ready Set Go! Pack -->
                 <div class="card card-small" onclick="location.href='mods/ready-set-go.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/ready-set-go.png');background-size:cover;background-position:center;"></div>
+                    <div class="image-placeholder" style="background-image:url('img/mods/ready-set-go.png');"></div>
                     <div class="card-info"><h4>Ready Set Go! Pack <span class="diff-badge diff-hard">HARD</span></h4></div>
                 </div>
 
-                <!-- CARD: PAUSE -->
-                <div class="card card-small" onclick="location.href='mods/pause.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/pause.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>PAUSE <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Titular 2026 (Stickmin) -->
-                <div class="card card-small" onclick="location.href='mods/titular-2026.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/titular-2026.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Titular 2026 (Stickmin) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Cocoa (GF Mix) -->
-                <div class="card card-small" onclick="location.href='mods/cocoa-gf-mix.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/cocoa-gf-mix.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Cocoa (GF Mix) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Corruption Minipack -->
-                <div class="card card-small" onclick="location.href='mods/corruption-minipack.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/corruption-minipack.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
-                </div>
-
-                <!-- CARD: Fresher Cool Mode -->
-                <div class="card card-small" onclick="location.href='mods/fresher-cool-mode.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/fresher-cool-mode.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Fresher (Cool Mode) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Wheel Space -->
-                <div class="card card-small" onclick="location.href='mods/wheel-space.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/wheel-space.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Wheel Space <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Deux Sex Machina -->
-                <div class="card card-small" onclick="location.href='mods/deux-sex-machina.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/deux-sex-machina.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Deux Sex Machina <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <!-- CARD: Pico 4th Song -->
                 <div class="card card-small" onclick="location.href='mods/pico-4th-song.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/pico-4th-song.jpg');background-size:cover;background-position:center;"></div>
+                    <div class="image-placeholder" style="background-image:url('img/mods/pico-4th-song.jpg');"></div>
                     <div class="card-info"><h4>Pico 4th Song <span class="diff-badge diff-hard">HARD</span></h4></div>
                 </div>
 
-                <!-- COPIA PARA MAS MODS:
-                <div class="card card-small" onclick="location.href='mods/tu-mod.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/tu-mod.jpg');background-size:cover;background-position:center;"></div>
-                    <div class="card-info"><h4>Nombre del Mod</h4></div>
+                <div class="card card-small" onclick="location.href='mods/corruption-minipack.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/corruption-minipack.png');"></div>
+                    <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
                 </div>
-                -->
+
+                <div class="card card-small" onclick="location.href='mods/wheel-space.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/wheel-space.png');"></div>
+                    <div class="card-info"><h4>Wheel Space <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/deux-sex-machina.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/deux-sex-machina.png');"></div>
+                    <div class="card-info"><h4>Deux Sex Machina <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/green.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/green.png');"></div>
+                    <div class="card-info"><h4>GREEN <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/pause.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/pause.png');"></div>
+                    <div class="card-info"><h4>PAUSE <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/cocoa-gf-mix.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/cocoa-gf-mix.png');"></div>
+                    <div class="card-info"><h4>Cocoa (GF Mix) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <!-- Si agregas Fresher Cool Mode u otros, ponlos aquí como card-small -->
 
             </div>
-        </div>
-
         </div>
 
     <div class="commissions-popup" id="commPopup">
