@@ -449,6 +449,7 @@ body.scrollable .container { padding-bottom: 5rem; }
 .cdot.active { background: var(--primary); transform: scale(1.3); }
 .cdot:hover { background: var(--secondary); }
 
+
 /* ══════════════════════════════════════
    MOBILE RESPONSIVE
 ══════════════════════════════════════ */
@@ -458,11 +459,11 @@ body.scrollable .container { padding-bottom: 5rem; }
     html { overflow-x: hidden; }
     body { overflow-x: hidden; width: 100%; }
 
-    /* ── OVERRIDE BROKEN CALC VARIABLES ── */
+    /* ── FIX BROKEN CALC VARIABLES ── */
     :root {
-        --navbar-h: 3.2rem;
+        --navbar-h: auto;
         --footer-h: 0px;
-        --mods-h: 0px;
+        --mods-h: auto;
         --banner-h: auto;
         --bg: #0a0a0f;
     }
@@ -470,12 +471,10 @@ body.scrollable .container { padding-bottom: 5rem; }
     /* ── NAVBAR ── */
     .navbar {
         height: auto !important;
-        min-height: var(--navbar-h);
         padding: 0.6rem 1rem !important;
         flex-wrap: nowrap !important;
         justify-content: space-between;
     }
-    .nav-logo { flex-shrink: 0; }
     .logo-img  { width: 2.4rem !important; height: 2.4rem !important; }
     .logo-text { display: none !important; }
     .nav-links { gap: 0 !important; flex-wrap: nowrap !important; flex: 1; }
@@ -490,54 +489,58 @@ body.scrollable .container { padding-bottom: 5rem; }
     }
     .nav-links li a::before { display: none; }
 
-    /* ── HERO — full proper height ── */
+    /* ── HERO ── */
     .hero {
         height: auto !important;
-        min-height: 55vw !important;
+        min-height: unset !important;
         background-color: #fecb52 !important;
         overflow: hidden !important;
         padding: 1.5rem 1.2rem 2rem !important;
         box-sizing: border-box !important;
-        display: flex !important;
-        align-items: center !important;
     }
     .hero-media  { display: none !important; }
     .hero-shapes { display: none !important; }
-    .hero-content {
-        max-width: 100% !important;
-        width: 100% !important;
-        position: relative;
-        z-index: 5;
-    }
-    .title        { font-size: clamp(2.2rem, 9vw, 3.5rem) !important; line-height: 1.1; }
-    .hero-eyebrow { font-size: 0.78rem !important; display: block !important; }
-    .subtitle     { font-size: 1rem !important; display: block !important; }
-    .hero-buttons { flex-direction: column !important; gap: 0.5rem; align-items: flex-start; margin-top: 1rem; }
+    .hero-content { max-width: 100% !important; width: 100% !important; }
+    .title        { font-size: clamp(2rem, 8vw, 3rem) !important; line-height: 1.1; }
+    .hero-eyebrow { font-size: 0.78rem !important; }
+    .subtitle     { font-size: 1rem !important; }
+    .hero-buttons { flex-direction: column !important; gap: 0.5rem; align-items: flex-start; margin-top: 0.8rem; }
     .btn          { font-size: 0.9rem !important; padding: 0.6rem 1.2rem !important; }
 
-    /* ── RECENT MODS / HALL OF FAME ── */
+    /* ── HALL OF FAME — KEY FIX ── */
     .recent-mods {
+        height: auto !important;
+        min-height: unset !important;
+        max-height: none !important;
         padding: 1.2rem 1rem !important;
-        background: #0a0a0f !important;
+        background: var(--surface) !important;
+        overflow: visible !important;
     }
-    .recent-mods h2 { font-size: 1.2rem; margin-bottom: 0.9rem; }
+    .recent-mods > h2 {
+        position: relative !important;
+        top: auto !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.9rem !important;
+        padding: 0 !important;
+    }
     .layout-bottom {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.7rem !important;
+        gap: 0.6rem !important;
         height: auto !important;
         max-height: none !important;
         overflow: visible !important;
+        position: relative !important;
+        top: auto !important;
     }
     .layout-bottom .card { animation: none !important; }
-    .view-all-container { background: #0a0a0f !important; padding: 0.5rem 1rem 1rem; }
 
     /* ── FOOTER ── */
     .site-footer {
-        background: var(--surface) !important;
+        height: auto !important;
         position: relative !important;
         bottom: auto !important;
-        padding: 0.9rem 1rem;
+        padding: 0.9rem 1rem !important;
         font-size: 0.78rem;
     }
     .footer-links { gap: 1.2rem; }
@@ -572,8 +575,8 @@ body.scrollable .container { padding-bottom: 5rem; }
     .mod-banner { height: 48vw !important; min-height: 150px; }
     .mod-banner-title { padding: 0.8rem 1rem !important; }
     .mod-banner-title h1 { font-size: 1.5rem !important; line-height: 1.2; text-shadow: 2px 2px 0 #000, 0 0 12px rgba(0,0,0,0.9) !important; }
-    .mod-banner-meta { font-size: 0.78rem !important; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
-    .mod-video-wrap { width: 100%; position: relative; padding-top: 56.25%; height: 0; overflow: hidden; margin-bottom: 0.5rem; }
+    .mod-banner-meta { font-size: 0.78rem !important; flex-wrap: wrap; gap: 0.4rem; }
+    .mod-video-wrap { width: 100%; position: relative; padding-top: 56.25%; height: 0; overflow: hidden; }
     .mod-video-wrap iframe { position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important; }
     .mod-section p { font-size: 0.92rem !important; line-height: 1.7; }
     .song-table { font-size: 0.78rem; width: 100%; }
@@ -582,7 +585,6 @@ body.scrollable .container { padding-bottom: 5rem; }
     .sidebar-box-body p { font-size: 0.85rem; }
     .download-btn { font-size: 0.82rem; padding: 0.6rem 1rem; width: 100%; box-sizing: border-box; }
     .credit-name { font-size: 0.92rem; }
-    .credit-detail { font-size: 0.76rem; }
     .credit-role-label { font-size: 0.75rem; min-width: 5.5rem; }
 
     /* ── INSTALL ── */
@@ -590,10 +592,6 @@ body.scrollable .container { padding-bottom: 5rem; }
     .step h3 { font-size: 1.05rem; }
     .step p  { font-size: 0.9rem; line-height: 1.7; }
     .code-block { font-size: 0.68rem; word-break: break-all; padding: 0.5rem; }
-    .engine-btn { font-size: 0.82rem; padding: 0.6rem 1rem; }
-
-    /* ── CREDITS ── */
-    .credits-mod-header h2 { font-size: 0.9rem; }
 
     /* ── POPUP ── */
     .commissions-popup {
