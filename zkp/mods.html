@@ -86,18 +86,14 @@
             <h1>All Mods & Charts</h1>
             <p class="subtitle">The full list of my creations.</p>
         </div>
-
-        <!-- TABS -->
         <div class="tabs-bar">
-            <button class="tab-btn active" onclick="switchTab('tab1', this)">All Mods</button>
-            <!-- Agrega más tabs aquí cuando tengas muchos más mods -->
+            <button class="tab-btn active" onclick="switchTab('tab1', this)">Page 1</button>
+            <button class="tab-btn" onclick="switchTab('tab2', this)">Page 2</button>
         </div>
 
-        <!-- ====================== TAB PRINCIPAL ====================== -->
         <div class="tab-panel active" id="tab1">
             <div class="mods-grid">
 
-                <!-- === CARD DESTACADO GRANDE: Titular 2026 === -->
                 <div class="card card-featured" onclick="location.href='mods/stickmin-in-2026.html'">
                     <div class="image-placeholder" style="background-image:url('img/mods/stickmin-in-2026.png');background-size:cover;background-position:center;"></div>
                     <div class="card-info">
@@ -106,30 +102,9 @@
                     </div>
                 </div>
 
-                <!-- === Cards pequeños alrededor (el grid los acomoda automáticamente) === -->
-                <div class="card card-small" onclick="location.href='mods/2nd-half.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/2nd-half.png');"></div>
-                    <div class="card-info"><h4>2ND HALF <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/ready-set-go.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/ready-set-go.png');"></div>
-                    <div class="card-info"><h4>Ready Set Go! Pack <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
                 <div class="card card-small" onclick="location.href='mods/pico-4th-song.html'">
                     <div class="image-placeholder" style="background-image:url('img/mods/pico-4th-song.jpg');"></div>
                     <div class="card-info"><h4>Pico 4th Song <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/corruption-minipack.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/corruption-minipack.png');"></div>
-                    <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/wheel-space.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/wheel-space.png');"></div>
-                    <div class="card-info"><h4>Wheel Space <span class="diff-badge diff-normal">NORMAL</span></h4></div>
                 </div>
 
                 <div class="card card-small" onclick="location.href='mods/deux-sex-machina.html'">
@@ -137,9 +112,29 @@
                     <div class="card-info"><h4>Deux Sex Machina <span class="diff-badge diff-normal">NORMAL</span></h4></div>
                 </div>
 
+                <div class="card card-small" onclick="location.href='mods/wheel-space.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/wheel-space.png');"></div>
+                    <div class="card-info"><h4>Wheel Space <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/fresher.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/fresher.png');"></div>
+                    <div class="card-info"><h4>FRESHER <span class="diff-badge diff-hard">HARD</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/2nd-half.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/2nd-half.png');"></div>
+                    <div class="card-info"><h4>2ND HALF <span class="diff-badge diff-hard">HARD</span></h4></div>
+                </div>
+
                 <div class="card card-small" onclick="location.href='mods/green.html'">
                     <div class="image-placeholder" style="background-image:url('img/mods/green.png');"></div>
                     <div class="card-info"><h4>GREEN <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+                </div>
+
+                <div class="card card-small" onclick="location.href='mods/ready-set-go.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/ready-set-go.png');"></div>
+                    <div class="card-info"><h4>Ready Set Go! Pack <span class="diff-badge diff-hard">HARD</span></h4></div>
                 </div>
 
                 <div class="card card-small" onclick="location.href='mods/pause.html'">
@@ -152,10 +147,80 @@
                     <div class="card-info"><h4>Cocoa (GF Mix) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
                 </div>
 
-                <!-- Si agregas Fresher Cool Mode u otros, ponlos aquí como card-small -->
+                <div class="card card-small" onclick="location.href='mods/corruption-minipack.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/corruption-minipack.png');"></div>
+                    <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
+                </div>
+        </div>
+    </div>
 
+    <div class="tab-panel" id="tab2">
+        <div class="mods-grid">
+
+                <div class="card card-featured" onclick="location.href='mods/tutorial-pico-mix.html'">
+                    <div class="image-placeholder" style="background-image:url('img/mods/tutorial-pico-mix.png');background-size:cover;background-position:center;"></div>
+                    <div class="card-info">
+                        <h3>Tutorial (Pico Mix)</h3>
+                        <p>Sharpshooter<br><span class="diff-badge diff-normal">NORMAL</span></p>
+                    </div>
+                </div>
+
+            <div class="card card-small" onclick="location.href='mods/night-lights.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/night-lights.png');"></div>
+                <div class="card-info"><h4>Night Lights (FHX) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/desolation.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/desolation.png');"></div>
+                <div class="card-info"><h4>Desolation <span class="diff-badge diff-hard">HARD</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/otis.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/otis.png');"></div>
+                <div class="card-info"><h4>Otis Remix <span class="diff-badge diff-normal">NORMAL</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/silly-monster.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/silly-monster.png');"></div>
+                <div class="card-info"><h4>Silly Monster <span class="diff-badge diff-hard">NORMAL</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/you-cant-run-2025.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/ycr-2025.png');"></div>
+                <div class="card-info"><h4>You Can't Run 2025 <span class="diff-badge diff-hard">HARD</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/snowed-in.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/snowed-in.png');"></div>
+                <div class="card-info"><h4>Snowed In <span class="diff-badge diff-hard">HARD</span></h4></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/skybreaker.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/skybreaker.png');"></div>
+                <div class="card-info"><h4 class="obsolete">Skybreaker </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/skylimit.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/skylimit.png');"></div>
+                <div class="card-info"><h4 class="obsolete">SkyLimit </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/defeat-pico-mix.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/defeat-pico-mix.png');"></div>
+                <div class="card-info"><h4 class="obsolete">Defeat (Pico Mix) </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/casanova-pico-mix.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/casanova-pico-mix.png');"></div>
+                <div class="card-info"><h4 class="obsolete">Casanova (Pico Mix) </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
+            </div>
+
+            <div class="card card-small" onclick="location.href='mods/fresh-reworked.html'">
+                <div class="image-placeholder" style="background-image:url('img/mods/fresh-reworked.png');"></div>
+                <div class="card-info"><h4 class="obsolete">Fresh Reworked </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
             </div>
         </div>
+    </div>
 
     <div class="commissions-popup" id="commPopup">
         <div class="popup-drag-handle" id="popupHandle">&#9733; COMMISSIONS &#9733;</div>
