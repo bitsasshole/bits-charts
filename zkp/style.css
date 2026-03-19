@@ -448,3 +448,85 @@ body.scrollable .container { padding-bottom: 5rem; }
 }
 .cdot.active { background: var(--primary); transform: scale(1.3); }
 .cdot:hover { background: var(--secondary); }
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE
+══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar { padding: 0.5rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .nav-links { gap: 0.6rem; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.7rem; }
+    .logo-text { font-size: 0.9rem; }
+
+    /* HERO */
+    .hero { min-height: 60vw; padding: 1.5rem 1rem 1rem; }
+    .hero-gif { height: 160%; right: -5%; bottom: -5%; }
+    .hero-content { max-width: 65%; }
+    .title { font-size: clamp(1.8rem, 6vw, 3rem); }
+    .hero-eyebrow { font-size: 0.55rem; }
+    .subtitle { font-size: 0.75rem; }
+    .hero-buttons { flex-direction: column; gap: 0.4rem; }
+    .btn { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
+
+    /* RECENT MODS / HALL OF FAME */
+    .recent-mods { padding: 1rem; }
+    .recent-mods h2 { font-size: 1rem; }
+    .layout-bottom {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    /* MODS GRID */
+    .mods-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .mods-grid .card-featured {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    /* CARDS */
+    .card-info h4 { font-size: 0.7rem; }
+    .card-info h3 { font-size: 0.75rem; }
+
+    /* MOD PAGE */
+    .mod-layout { flex-direction: column; }
+    .mod-sidebar { width: 100%; }
+    .mod-banner { height: 40vw; min-height: 160px; }
+    .mod-banner-title h1 { font-size: 1.2rem; }
+    .mod-video-wrap iframe { height: 200px; }
+    .song-table { font-size: 0.7rem; }
+
+    /* INSTALL STEPS */
+    .install-guide { gap: 1rem; }
+    .step { padding: 1rem; }
+    .step h3 { font-size: 0.85rem; }
+    .step::before { width: 2rem; height: 2rem; font-size: 0.9rem; }
+
+    /* POPUP */
+    .commissions-popup {
+        width: 80vw;
+        right: 10vw;
+        font-size: 0.85rem;
+    }
+
+    /* FOOTER */
+    .site-footer { padding: 0.8rem 1rem; font-size: 0.7rem; }
+    .footer-links { gap: 0.8rem; }
+
+    /* CONTAINER */
+    .container { padding: 1rem; }
+    .page-header h1 { font-size: 1.3rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-gif { display: none; }
+    .hero-content { max-width: 100%; }
+    .mods-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .layout-bottom { grid-template-columns: repeat(2, 1fr); }
+    .nav-links li:nth-child(3) { display: none; } /* hide Forum on tiny screens */
+}
