@@ -15,26 +15,15 @@
     <style>
         body { display: flex; flex-direction: column; min-height: 100vh; }
         .recent-mods { flex: 1 0 auto; }
-        .site-footer  { flex-shrink: 0; position: relative !important; bottom: auto !important; }
-
+        .site-footer { flex-shrink: 0; position: relative !important; bottom: auto !important; }
         .layout-bottom .card { animation: cardFloat 3s ease-in-out infinite; }
         .layout-bottom .card:nth-child(1) { animation-delay: 0s;   }
         .layout-bottom .card:nth-child(2) { animation-delay: 0.2s; }
         .layout-bottom .card:nth-child(3) { animation-delay: 0.4s; }
         .layout-bottom .card:nth-child(4) { animation-delay: 0.6s; }
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0px);  }
-            50%       { transform: translateY(-5px); }
-        }
-
+        @keyframes cardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
         @media (max-width: 768px) {
-            .hero {
-                height: auto !important;
-                min-height: unset !important;
-                padding: 2rem 1.2rem 2.5rem !important;
-                overflow: hidden !important;
-                box-sizing: border-box !important;
-            }
+            .hero { height: auto !important; min-height: unset !important; padding: 2rem 1.2rem 2.5rem !important; overflow: hidden !important; box-sizing: border-box !important; }
             .hero-media, .hero-shapes, .hero-gif { display: none !important; }
             .hero-content { position: relative !important; max-width: 100% !important; z-index: 10 !important; }
             .hero-eyebrow { display: block !important; font-size: 0.75rem !important; }
@@ -43,13 +32,12 @@
             .hero-buttons { display: flex !important; flex-direction: column !important; gap: 0.5rem; align-items: flex-start; margin-top: 1rem; }
             .btn          { font-size: 0.9rem !important; padding: 0.6rem 1.2rem !important; }
             .layout-bottom .card { animation: none !important; }
-            .site-footer { display: none !important; }
+            .site-footer  { display: none !important; }
             .mobile-footer { display: block !important; }
         }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="nav-logo">
             <a href="index.html"><img src="zkp/img/logo.png" alt="Logo" class="logo-img"></a>
@@ -58,19 +46,15 @@
         <ul class="nav-links">
             <li><a href="zkp/mods.html">Mods</a></li>
             <li><a href="zkp/install.html">Install</a></li>
-            
             <li><a href="zkp/credits.html">Credits</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-            <div class="shape shape-6"></div>
+            <div class="shape shape-1"></div><div class="shape shape-2"></div>
+            <div class="shape shape-3"></div><div class="shape shape-4"></div>
+            <div class="shape shape-5"></div><div class="shape shape-6"></div>
             <div class="shape shape-7"></div>
         </div>
         <div class="hero-media">
@@ -89,25 +73,7 @@
 
     <section class="recent-mods">
         <h2>Hall of Fame</h2>
-        <div class="layout-bottom">
-            <div class="card card-small" onclick="location.href='zkp/mods/stickmin-in-2026.html'">
-                <div class="image-placeholder" style="background-image:url('zkp/img/mods/stickmin-in-2026.png');background-size:cover;background-position:center;"></div>
-                <div class="card-info"><h4>Titular 2026 <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-            </div>
-            <div class="card card-small" onclick="location.href='zkp/mods/pico-4th-song.html'">
-                <div class="image-placeholder" style="background-image:url('zkp/img/mods/pico-4th-song.jpg');background-size:cover;background-position:center;"></div>
-                <div class="card-info"><h4>Pico 4th Song <span class="diff-badge diff-hard">HARD</span></h4></div>
-            </div>
-            <div class="card card-small" onclick="location.href='zkp/mods/ready-set-go.html'">
-                <div class="image-placeholder" style="background-image:url('zkp/img/mods/ready-set-go.png');background-size:cover;background-position:center;"></div>
-                <div class="card-info"><h4>Ready Set Go! <span class="diff-badge diff-hard">HARD</span></h4></div>
-            </div>
-            <div class="card card-small" onclick="location.href='zkp/mods/corruption-minipack.html'">
-                <div class="image-placeholder" style="background-image:url('zkp/img/mods/corruption-minipack.png');background-size:cover;background-position:center;"></div>
-                <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
-            </div>
-        </div>
-
+        <div class="layout-bottom" id="hall-of-fame"></div>
     </section>
 
     <div class="mobile-footer" style="display:none; text-align:center; padding: 1.5rem 1rem; font-family: VCR, monospace; color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">hellooooo :)</div>
@@ -128,28 +94,34 @@
         <a href="https://linktr.ee/qm_Bit" class="commission-btn" target="_blank">> Hit me up on Discord!</a>
     </div>
 
+    <script src="zkp/mods-data.js"></script>
+    <script>
+        const DIFF_LABELS = { easy:"EASY", normal:"NORMAL", hard:"HARD", erect:"ERECT" };
+        const hof = MODS_DATA.filter(m => m.hallOfFame);
+        document.getElementById('hall-of-fame').innerHTML = hof.map(m => `
+            <div class="card card-small" onclick="location.href='zkp/mods/${m.id}.html'">
+                <div class="image-placeholder" style="background-image:url('zkp/${m.banner}');background-size:cover;background-position:center;"></div>
+                <div class="card-info">
+                    <h4>${m.name} ${m.diffs.map(d => `<span class="diff-badge diff-${d}">${DIFF_LABELS[d]}</span>`).join(' ')}</h4>
+                </div>
+            </div>
+        `).join('');
+    </script>
     <script>
     (function() {
-        var popup = document.getElementById('commPopup');
-        var handle = document.getElementById('popupHandle');
+        var popup = document.getElementById('commPopup'), handle = document.getElementById('popupHandle');
         if (!popup || !handle) return;
         var drag = false, ox = 0, oy = 0;
         handle.addEventListener('mousedown', function(e) {
             var r = popup.getBoundingClientRect();
             popup.style.transform = 'none';
-            popup.style.top = r.top + 'px';
-            popup.style.left = r.left + 'px';
-            popup.style.right = 'auto';
-            popup.style.bottom = 'auto';
-            drag = true; ox = e.clientX - r.left; oy = e.clientY - r.top;
-            e.preventDefault();
+            popup.style.top = r.top+'px'; popup.style.left = r.left+'px';
+            popup.style.right = 'auto'; popup.style.bottom = 'auto';
+            drag = true; ox = e.clientX-r.left; oy = e.clientY-r.top; e.preventDefault();
         });
-        document.addEventListener('mousemove', function(e) {
-            if (drag) { popup.style.left=(e.clientX-ox)+'px'; popup.style.top=(e.clientY-oy)+'px'; }
-        });
+        document.addEventListener('mousemove', function(e) { if(drag){ popup.style.left=(e.clientX-ox)+'px'; popup.style.top=(e.clientY-oy)+'px'; } });
         document.addEventListener('mouseup', function() { drag = false; });
     })();
     </script>
-
 </body>
 </html>

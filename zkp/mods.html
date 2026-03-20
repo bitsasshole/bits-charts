@@ -7,73 +7,34 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ── TABS ── */
-        .tabs-bar {
-            display: flex;
-            gap: 0;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid var(--border);
-        }
+        .tabs-bar { display: flex; gap: 0; margin-bottom: 1rem; border-bottom: 3px solid var(--border); }
         .tab-btn {
-            font-family: 'VCR', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 0.4rem 1.2rem;
-            background: var(--surface2);
-            color: var(--text-body);
-            border: 3px solid var(--border);
-            border-bottom: none;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-            margin-right: 3px;
-            position: relative;
-            top: 3px;
+            font-family: 'VCR', monospace; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; padding: 0.4rem 1.2rem; background: var(--surface2);
+            color: var(--text-body); border: 3px solid var(--border); border-bottom: none;
+            cursor: pointer; transition: background 0.15s, color 0.15s;
+            margin-right: 3px; position: relative; top: 3px;
         }
         .tab-btn:hover { background: var(--surface3); color: var(--white); }
-        .tab-btn.active {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* ── TAB PANELS ── */
+        .tab-btn.active { background: var(--primary); color: var(--white); }
         .tab-panel { display: none; }
         .tab-panel.active { display: block; }
-
-        /* ── MODS GRID — smaller cards ── */
-        .mods-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.6rem;
-        }
-
-        /* Featured card takes 2 cols */
-        .mods-grid .card-featured {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        .mods-grid .card-featured .image-placeholder {
-            aspect-ratio: 16/9;
-            font-size: 0.9rem;
-        }
-        .mods-grid .card-featured .card-info h3 {
-            font-size: 0.9rem;
-        }
-        .mods-grid .card-featured .card-info p {
-            display: block;
-            font-size: 0.7rem;
-            color: rgba(200,200,216,0.6);
-            line-height: 1.4;
-        }
+        .mods-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+        .mods-grid .card-featured { grid-column: span 2; grid-row: span 2; }
+        .mods-grid .card-featured .image-placeholder { aspect-ratio: 16/9; font-size: 0.9rem; }
+        .mods-grid .card-featured .card-info h3 { font-size: 0.9rem; }
+        .mods-grid .card-featured .card-info p { display: block; font-size: 0.7rem; color: rgba(200,200,216,0.6); line-height: 1.4; }
     </style>
 </head>
 <body class="scrollable">
     <nav class="navbar">
-        <div class="nav-logo"><a href="../index.html"><img src="img/logo.png" alt="Logo" class="logo-img"></a><a href="../index.html" class="logo-text">Bit's Charts</a></div>
+        <div class="nav-logo">
+            <a href="../index.html"><img src="img/logo.png" alt="Logo" class="logo-img"></a>
+            <a href="../index.html" class="logo-text">Bit's Charts</a>
+        </div>
         <ul class="nav-links">
             <li><a href="mods.html" class="active">Mods</a></li>
             <li><a href="install.html">Install</a></li>
-            
             <li><a href="credits.html">Credits</a></li>
         </ul>
     </nav>
@@ -87,135 +48,11 @@
             <button class="tab-btn active" onclick="switchTab('tab1', this)">Page 1</button>
             <button class="tab-btn" onclick="switchTab('tab2', this)">Page 2</button>
         </div>
-
         <div class="tab-panel active" id="tab1">
-            <div class="mods-grid">
-
-                <div class="card card-featured" onclick="location.href='mods/stickmin-in-2026.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/stickmin-in-2026.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info">
-                        <h3>Stickmin in 2026</h3>
-                        <p>Fanmade Stickmin vibes en 2026<br><span class="diff-badge diff-normal">NORMAL</span></p>
-                    </div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/pico-4th-song.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/pico-4th-song.jpg');"></div>
-                    <div class="card-info"><h4>Pico 4th Song <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/deux-sex-machina.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/deux-sex-machina.png');"></div>
-                    <div class="card-info"><h4>Deux Sex Machina <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/wheel-space.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/wheel-space.png');"></div>
-                    <div class="card-info"><h4>Wheel Space <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/fresher.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/fresher.png');"></div>
-                    <div class="card-info"><h4>FRESHER <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/2nd-half.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/2nd-half.png');"></div>
-                    <div class="card-info"><h4>2ND HALF <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/green.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/green.png');"></div>
-                    <div class="card-info"><h4>GREEN <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/ready-set-go.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/ready-set-go.png');"></div>
-                    <div class="card-info"><h4>Ready Set Go! Pack <span class="diff-badge diff-hard">HARD</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/pause.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/pause.png');"></div>
-                    <div class="card-info"><h4>PAUSE <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/cocoa-gf-mix.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/cocoa-gf-mix.png');"></div>
-                    <div class="card-info"><h4>Cocoa (GF Mix) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-                </div>
-
-                <div class="card card-small" onclick="location.href='mods/corruption-minipack.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/corruption-minipack.png');"></div>
-                    <div class="card-info"><h4>Corruption Minipack <span class="diff-badge diff-erect">ERECT</span></h4></div>
-                </div>
+            <div class="mods-grid" id="grid-page1"></div>
         </div>
-    </div>
-
-    <div class="tab-panel" id="tab2">
-        <div class="mods-grid">
-
-                <div class="card card-featured" onclick="location.href='mods/tutorial-pico-mix.html'">
-                    <div class="image-placeholder" style="background-image:url('img/mods/tutorial-pico-mix.png');background-size:cover;background-position:center;"></div>
-                    <div class="card-info">
-                        <h3>Tutorial (Pico Mix)</h3>
-                        <p>Sharpshooter<br><span class="diff-badge diff-normal">NORMAL</span></p>
-                    </div>
-                </div>
-
-            <div class="card card-small" onclick="location.href='mods/night-lights.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/night-lights.png');"></div>
-                <div class="card-info"><h4>Night Lights (FHX) <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/desolation.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/desolation.png');"></div>
-                <div class="card-info"><h4>Desolation <span class="diff-badge diff-hard">HARD</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/otis.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/otis.png');"></div>
-                <div class="card-info"><h4>Otis Remix <span class="diff-badge diff-normal">NORMAL</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/silly-monster.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/silly-monster.png');"></div>
-                <div class="card-info"><h4>Silly Monster <span class="diff-badge diff-hard">NORMAL</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/you-cant-run-2025.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/ycr-2025.png');"></div>
-                <div class="card-info"><h4>You Can't Run 2025 <span class="diff-badge diff-hard">HARD</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/snowed-in.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/snowed-in.png');"></div>
-                <div class="card-info"><h4>Snowed In <span class="diff-badge diff-hard">HARD</span></h4></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/skybreaker.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/skybreaker.png');"></div>
-                <div class="card-info"><h4 class="obsolete">Skybreaker </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/skylimit.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/skylimit.png');"></div>
-                <div class="card-info"><h4 class="obsolete">SkyLimit </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/defeat-pico-mix.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/defeat-pico-mix.png');"></div>
-                <div class="card-info"><h4 class="obsolete">Defeat (Pico Mix) </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/casanova-pico-mix.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/casanova-pico-mix.png');"></div>
-                <div class="card-info"><h4 class="obsolete">Casanova (Pico Mix) </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
-            </div>
-
-            <div class="card card-small" onclick="location.href='mods/fresh-reworked.html'">
-                <div class="image-placeholder" style="background-image:url('img/mods/fresh-reworked.png');"></div>
-                <div class="card-info"><h4 class="obsolete">Fresh Reworked </h4><span class="diff-badge diff-obsolete">OBSOLETE</span></div>
-            </div>
+        <div class="tab-panel" id="tab2">
+            <div class="mods-grid" id="grid-page2"></div>
         </div>
     </div>
 
@@ -235,7 +72,49 @@
         <p>&copy; 2026 Bit's Charts. All rights reserved.</p>
     </footer>
 
+    <script src="mods-data.js"></script>
     <script>
+        const DIFF_LABELS  = { easy:"EASY", normal:"NORMAL", hard:"HARD", erect:"ERECT" };
+        const DIFF_CLASSES = { easy:"diff-easy", normal:"diff-normal", hard:"diff-hard", erect:"diff-erect" };
+
+        function badge(d) {
+            return `<span class="diff-badge ${DIFF_CLASSES[d]}">${DIFF_LABELS[d]}</span>`;
+        }
+
+        function cardHTML(m, featured) {
+            const badges = m.diffs.map(badge).join(' ');
+            const obsoleteCls = m.obsolete ? 'obsolete' : '';
+            const diffBadge = m.obsolete
+                ? `<span class="diff-badge diff-obsolete">OBSOLETE</span>`
+                : badges;
+
+            if (featured) {
+                return `
+                <div class="card card-featured" onclick="location.href='mods/${m.id}.html'">
+                    <div class="image-placeholder" style="background-image:url('${m.banner}');background-size:cover;background-position:center;"></div>
+                    <div class="card-info">
+                        <h3>${m.name}</h3>
+                        <p>${m.diffs.map(d => badge(d)).join(' ')}</p>
+                    </div>
+                </div>`;
+            }
+            return `
+            <div class="card card-small" onclick="location.href='mods/${m.id}.html'">
+                <div class="image-placeholder" style="background-image:url('${m.banner}');background-size:cover;background-position:center;"></div>
+                <div class="card-info"><h4 class="${obsoleteCls}">${m.name} </h4>${diffBadge}</div>
+            </div>`;
+        }
+
+        // Page 1 — primeros 11 mods (el primero es featured)
+        const page1 = MODS_DATA.slice(0, 11);
+        document.getElementById('grid-page1').innerHTML =
+            cardHTML(page1[0], true) + page1.slice(1).map(m => cardHTML(m, false)).join('');
+
+        // Page 2 — resto
+        const page2 = MODS_DATA.slice(11);
+        document.getElementById('grid-page2').innerHTML =
+            cardHTML(page2[0], true) + page2.slice(1).map(m => cardHTML(m, false)).join('');
+
         function switchTab(id, btn) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -245,28 +124,18 @@
     </script>
     <script>
     (function() {
-        const popup = document.getElementById('commPopup');
-        const handle = document.getElementById('popupHandle');
-        if (!handle) return;
-        let drag = false, ox = 0, oy = 0;
-        handle.addEventListener('mousedown', e => {
-            const r = popup.getBoundingClientRect();
+        var popup = document.getElementById('commPopup'), handle = document.getElementById('popupHandle');
+        if (!popup || !handle) return;
+        var drag = false, ox = 0, oy = 0;
+        handle.addEventListener('mousedown', function(e) {
+            var r = popup.getBoundingClientRect();
             popup.style.transform = 'none';
-            popup.style.top    = r.top  + 'px';
-            popup.style.left   = r.left + 'px';
-            popup.style.right  = 'auto';
-            popup.style.bottom = 'auto';
-            drag = true;
-            ox = e.clientX - r.left;
-            oy = e.clientY - r.top;
-            e.preventDefault();
+            popup.style.top = r.top+'px'; popup.style.left = r.left+'px';
+            popup.style.right = 'auto'; popup.style.bottom = 'auto';
+            drag = true; ox = e.clientX-r.left; oy = e.clientY-r.top; e.preventDefault();
         });
-        document.addEventListener('mousemove', e => {
-            if (!drag) return;
-            popup.style.left = (e.clientX - ox) + 'px';
-            popup.style.top  = (e.clientY - oy) + 'px';
-        });
-        document.addEventListener('mouseup', () => drag = false);
+        document.addEventListener('mousemove', function(e) { if(drag){ popup.style.left=(e.clientX-ox)+'px'; popup.style.top=(e.clientY-oy)+'px'; } });
+        document.addEventListener('mouseup', function() { drag = false; });
     })();
     </script>
 </body>

@@ -7,94 +7,34 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
     <style>
-        .credits-page-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            padding-bottom: 5rem;
-        }
-        .credits-mod-block {
-            background: var(--surface);
-            border: 3px solid var(--border);
-            box-shadow: 4px 4px 0 var(--border);
-            overflow: hidden;
-        }
-        .credits-mod-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.7rem 1.2rem;
-            background: var(--surface2);
-            border-bottom: 3px solid var(--border);
-            cursor: pointer;
-            transition: background 0.15s;
-        }
+        .credits-page-grid { display: flex; flex-direction: column; gap: 1.5rem; padding-bottom: 5rem; }
+        .credits-mod-block { background: var(--surface); border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border); overflow: hidden; }
+        .credits-mod-header { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.2rem; background: var(--surface2); border-bottom: 3px solid var(--border); cursor: pointer; transition: background 0.15s; }
         .credits-mod-header:hover { background: var(--surface3); }
-        .credits-mod-header h2 {
-            font-family: 'VCR', monospace;
-            font-size: 1rem;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .credits-mod-header .header-right {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .credits-toggle {
-            font-family: 'VCR', monospace;
-            font-size: 0.7rem;
-            color: var(--secondary);
-            transition: transform 0.2s;
-        }
-        .credits-mod-body {
-            padding: 1rem 1.2rem;
-            display: none;
-        }
+        .credits-mod-header h2 { font-family: 'VCR', monospace; font-size: 1rem; color: var(--white); text-transform: uppercase; letter-spacing: 2px; }
+        .credits-mod-header .header-right { display: flex; align-items: center; gap: 0.8rem; }
+        .credits-toggle { font-family: 'VCR', monospace; font-size: 0.7rem; color: var(--secondary); transition: transform 0.2s; }
+        .credits-mod-body { padding: 1rem 1.2rem; display: none; }
         .credits-mod-body.open { display: block; }
-        .credit-row {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            border-left: 3px solid var(--primary);
-            padding-left: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-        .credit-role-label {
-            font-family: 'VCR', monospace;
-            font-size: 0.7rem;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 7rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding-top: 0.1rem;
-        }
+        .credit-row { display: flex; gap: 1rem; align-items: flex-start; border-left: 3px solid var(--primary); padding-left: 0.9rem; margin-bottom: 0.8rem; }
+        .credit-role-label { font-family: 'VCR', monospace; font-size: 0.7rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; min-width: 7rem; display: flex; align-items: center; gap: 0.4rem; padding-top: 0.1rem; }
         .credit-people { display: flex; flex-direction: column; gap: 0.2rem; }
         .credit-person { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
         .credit-name { font-family: 'Letterstuff', sans-serif; font-size: 0.85rem; color: var(--white); text-transform: uppercase; }
         .credit-detail { font-family: 'SSS', monospace; font-size: 0.72rem; color: rgba(200,200,216,0.5); }
-        .no-credits {
-            font-family: 'VCR', monospace;
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.25);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 0.5rem 0;
-        }
+        .no-credits { font-family: 'VCR', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 2px; padding: 0.5rem 0; }
     </style>
 </head>
 <body class="scrollable">
 
 <nav class="navbar">
-    <div class="nav-logo"><a href="../index.html"><img src="img/logo.png" alt="Logo" class="logo-img"></a><a href="../index.html" class="logo-text">Bit's Charts</a></div>
+    <div class="nav-logo">
+        <a href="../index.html"><img src="img/logo.png" alt="Logo" class="logo-img"></a>
+        <a href="../index.html" class="logo-text">Bit's Charts</a>
+    </div>
     <ul class="nav-links">
         <li><a href="mods.html">Mods</a></li>
         <li><a href="install.html">Install</a></li>
-        
         <li><a href="credits.html" class="active">Credits</a></li>
     </ul>
 </nav>
@@ -104,21 +44,19 @@
         <h1>Credits</h1>
         <p class="subtitle">Everyone who worked on each mod.</p>
     </div>
-
     <div class="credits-page-grid" id="credits-root">
         <p style="font-family:'VCR',monospace;color:rgba(255,255,255,0.25);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">// Loading credits...</p>
     </div>
 </div>
 
-    <div class="commissions-popup" id="commPopup">
-        <div class="popup-drag-handle" id="popupHandle">&#9733; COMMISSIONS &#9733;</div>
-        <button class="popup-close" onclick="document.getElementById('commPopup').style.display='none'" title="Close">&#x2715;</button>
-        <h4>Commissions Open!</h4>
-        <p>I make charts and code for Friday Night Funkin'. Need help with your mod?</p>
-        <a href="https://linktr.ee/qm_Bit" class="commission-btn" target="_blank">> Hit me up on Discord!</a>
-    </div>
+<div class="commissions-popup" id="commPopup">
+    <div class="popup-drag-handle" id="popupHandle">&#9733; COMMISSIONS &#9733;</div>
+    <button class="popup-close" onclick="document.getElementById('commPopup').style.display='none'" title="Close">&#x2715;</button>
+    <h4>Commissions Open!</h4>
+    <p>I make charts and code for Friday Night Funkin'. Need help with your mod?</p>
+    <a href="https://linktr.ee/qm_Bit" class="commission-btn" target="_blank">> Hit me up on Discord!</a>
+</div>
 
-    </script>
 <footer class="site-footer">
     <div class="footer-links">
         <a href="https://www.youtube.com/@mq-bit" class="footer-link" target="_blank">> YouTube</a>
@@ -127,74 +65,61 @@
     <p>&copy; 2026 Bit's Charts. All rights reserved.</p>
 </footer>
 
-<script src="mods-list.js"></script>
+<script src="mods-data.js"></script>
 <script>
-// mods-list.js defines MODS_LIST — edit that file to add new mods
-const MOD_FILES = MODS_LIST;
-
-async function loadModCredits(file) {
-    try {
-        const res = await fetch(file);
-        const text = await res.text();
-        // Extract MOD object from the script tag
-        const match = text.match(/const MOD\s*=\s*(\{[\s\S]*?\}\s*;)/);
-        if (!match) return null;
-        // Safe eval using Function
-        const mod = new Function(`return ${match[1].replace(/;$/, '')}`)();
-        return { name: mod.name, credits: mod.credits || [], file };
-    } catch(e) {
-        return null;
-    }
-}
-
 function toggleBlock(body, arrow) {
     const open = body.classList.toggle('open');
     arrow.textContent = open ? '▼' : '▶';
 }
 
-async function renderCredits() {
+function renderCredits() {
     const root = document.getElementById('credits-root');
-    const mods = await Promise.all(MOD_FILES.map(loadModCredits));
-    const valid = mods.filter(Boolean);
-
-    if (!valid.length) {
-        root.innerHTML = `<p style="font-family:'VCR',monospace;color:rgba(255,255,255,0.25);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">// No mods added yet</p>`;
-        return;
-    }
-
-    root.innerHTML = valid.map((mod, i) => {
-        const creditsHtml = mod.credits.length
+    root.innerHTML = MODS_DATA.map((mod, i) => {
+        const creditsHtml = mod.credits && mod.credits.length
             ? mod.credits.map(c => {
-                const people = c.people.map(p =>
-                    `<div class="credit-person">
+                const people = c.people.map(p => `
+                    <div class="credit-person">
                         <span class="credit-name">${p.name}</span>
                         ${p.detail ? `<span class="credit-detail">— ${p.detail}</span>` : ''}
-                    </div>`
-                ).join('');
+                    </div>`).join('');
                 return `<div class="credit-row">
                     <div class="credit-role-label"><span>${c.icon}</span><span>${c.role}</span></div>
                     <div class="credit-people">${people}</div>
                 </div>`;
             }).join('')
-            : `<p class="no-credits">// No credits listed for this mod</p>`;
+            : `<p class="no-credits">// No credits listed</p>`;
 
         return `
         <div class="credits-mod-block">
             <div class="credits-mod-header" onclick="toggleBlock(document.getElementById('cb-${i}'), document.getElementById('ca-${i}'))">
                 <h2>${mod.name}</h2>
                 <div class="header-right">
-                    <a href="${mod.file}" class="diff-badge diff-erect" style="text-decoration:none;">View Mod</a>
+                    <a href="mods/${mod.id}.html" class="diff-badge diff-erect" style="text-decoration:none;">View Mod</a>
                     <span class="credits-toggle" id="ca-${i}">▶</span>
                 </div>
             </div>
-            <div class="credits-mod-body" id="cb-${i}">
-                ${creditsHtml}
-            </div>
+            <div class="credits-mod-body" id="cb-${i}">${creditsHtml}</div>
         </div>`;
     }).join('');
 }
 
 renderCredits();
+</script>
+<script>
+(function() {
+    var popup = document.getElementById('commPopup'), handle = document.getElementById('popupHandle');
+    if (!popup || !handle) return;
+    var drag = false, ox = 0, oy = 0;
+    handle.addEventListener('mousedown', function(e) {
+        var r = popup.getBoundingClientRect();
+        popup.style.transform = 'none';
+        popup.style.top = r.top+'px'; popup.style.left = r.left+'px';
+        popup.style.right = 'auto'; popup.style.bottom = 'auto';
+        drag = true; ox = e.clientX-r.left; oy = e.clientY-r.top; e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) { if(drag){ popup.style.left=(e.clientX-ox)+'px'; popup.style.top=(e.clientY-oy)+'px'; } });
+    document.addEventListener('mouseup', function() { drag = false; });
+})();
 </script>
 </body>
 </html>
