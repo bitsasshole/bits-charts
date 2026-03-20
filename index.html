@@ -35,7 +35,8 @@
             .site-footer  { display: none !important; }
             .mobile-footer { display: block !important; }
             .recent-mods { height: auto !important; overflow: visible !important; }
-            #hof-prev, #hof-next { font-size: 2rem !important; padding: 1.2rem 0.8rem !important; }
+            .carousel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+            .carousel-btn { font-size: 1.8rem !important; padding: 1rem 0.8rem !important; }
         }
     </style>
 </head>
@@ -75,12 +76,12 @@
 
     <section class="recent-mods">
         <h2>Hall of Fame</h2>
-        <div style="display:flex;align-items:center;gap:0.5rem;">
-            <button id="hof-prev" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.9rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&lt;</button>
-            <div class="layout-bottom" id="hall-of-fame" style="flex:1;"></div>
-            <button id="hof-next" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.9rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&gt;</button>
+        <div class="layout-bottom" id="hall-of-fame"></div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.7rem;margin-top:0.8rem;">
+            <button id="hof-prev" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.9rem;cursor:pointer;box-shadow:3px 3px 0 var(--border);">&lt;</button>
+            <div id="hof-dots" style="display:flex;gap:0.5rem;"></div>
+            <button id="hof-next" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.9rem;cursor:pointer;box-shadow:3px 3px 0 var(--border);">&gt;</button>
         </div>
-        <div id="hof-dots" style="display:flex;justify-content:center;gap:0.5rem;margin-top:0.7rem;"></div>
     </section>
 
     <div class="mobile-footer" style="display:none; text-align:center; padding: 1.5rem 1rem; font-family: VCR, monospace; color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">hellooooo :)</div>
@@ -115,21 +116,19 @@
         }
 
         var isMobile = window.innerWidth <= 768;
-        var perPage = isMobile ? 4 : 4;
-        var cols = isMobile ? 2 : 4;
+        var perPage = isMobile ? 6 : 4;
+        var cols    = isMobile ? 2 : 4;
         var hof = shuffle(MODS_DATA.filter(m => m.hallOfFame));
         var totalPages = Math.ceil(hof.length / perPage);
         var currentPage = 0;
 
-        var grid = document.getElementById('hall-of-fame');
-        var dotsEl = document.getElementById('hof-dots');
+        var grid    = document.getElementById('hall-of-fame');
+        var dotsEl  = document.getElementById('hof-dots');
         var btnPrev = document.getElementById('hof-prev');
         var btnNext = document.getElementById('hof-next');
 
-        // Aplicar columnas al grid
         grid.style.gridTemplateColumns = 'repeat('+cols+', minmax(0, 1fr))';
 
-        // Crear dots
         for (var i = 0; i < totalPages; i++) {
             var dot = document.createElement('div');
             dot.style.cssText = 'width:8px;height:8px;border:2px solid #000;background:var(--surface3);cursor:pointer;transition:background 0.15s;';
@@ -140,8 +139,8 @@
 
         function goTo(page) {
             currentPage = page;
-            grid.style.opacity = '0';
             grid.style.transition = 'opacity 0.2s';
+            grid.style.opacity = '0';
             setTimeout(function() {
                 var items = hof.slice(page * perPage, (page+1) * perPage);
                 grid.innerHTML = items.map(m => `
@@ -152,11 +151,7 @@
                         </div>
                     </div>
                 `).join('');
-                // Dots
-                dotsEl.querySelectorAll('div').forEach(function(d,i) {
-                    d.style.background = i === page ? 'var(--secondary)' : 'var(--surface3)';
-                });
-                // Flechas
+                dotsEl.querySelectorAll('div').forEach(function(d,i){ d.style.background = i===page ? 'var(--secondary)' : 'var(--surface3)'; });
                 btnPrev.style.opacity = page === 0 ? '0.35' : '1';
                 btnNext.style.opacity = page === totalPages-1 ? '0.35' : '1';
                 grid.style.opacity = '1';
