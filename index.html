@@ -24,7 +24,6 @@
         @keyframes cardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
         @media (max-width: 768px) {
             .hero { height: auto !important; min-height: unset !important; padding: 2rem 1.2rem 2.5rem !important; overflow: hidden !important; box-sizing: border-box !important; }
-            .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,87,184,0.15) 0%, transparent 50%, rgba(74,241,242,0.1) 100%); pointer-events: none; z-index: 1; }
             .hero-media, .hero-shapes, .hero-gif { display: none !important; }
             .hero-content { position: relative !important; max-width: 100% !important; z-index: 10 !important; }
             .hero-eyebrow { display: block !important; font-size: 0.75rem !important; }
@@ -35,8 +34,21 @@
             .layout-bottom .card { animation: none !important; }
             .site-footer  { display: none !important; }
             .mobile-footer { display: block !important; }
-            #stats-bar { gap: 1.5rem !important; padding: 1rem !important; }
-            #stats-bar > div > div:first-child { font-size: 1.6rem !important; }
+            /* Most Viewed scroll horizontal en móvil */
+            .layout-bottom {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                gap: 0.7rem !important;
+                padding-bottom: 0.5rem !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .layout-bottom::-webkit-scrollbar { display: none; }
+            .layout-bottom .card {
+                flex: 0 0 70vw !important;
+                max-width: 70vw !important;
+            }
         }
     </style>
 </head>
@@ -74,23 +86,8 @@
         </div>
     </header>
 
-    <section id="stats-bar" style="background:var(--surface);border-top:3px solid var(--border);border-bottom:3px solid var(--border);padding:1.2rem 2rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;">
-        <div style="text-align:center;">
-            <div id="stat-mods" style="font-family:'VCR',monospace;font-size:2rem;color:var(--secondary);text-shadow:3px 3px 0 var(--black);">0</div>
-            <div style="font-family:'SSS',monospace;font-size:0.65rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:2px;">Charts</div>
-        </div>
-        <div style="text-align:center;">
-            <div id="stat-songs" style="font-family:'VCR',monospace;font-size:2rem;color:var(--primary);text-shadow:3px 3px 0 var(--black);">0</div>
-            <div style="font-family:'SSS',monospace;font-size:0.65rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:2px;">Songs</div>
-        </div>
-        <div style="text-align:center;">
-            <div id="stat-engines" style="font-family:'VCR',monospace;font-size:2rem;color:var(--score-green);text-shadow:3px 3px 0 var(--black);">1</div>
-            <div style="font-family:'SSS',monospace;font-size:0.65rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:2px;">Engine</div>
-        </div>
-    </section>
-
     <section class="recent-mods">
-        <h2>Most Viewed</h2>
+        <h2>Hall of Fame</h2>
         <div class="layout-bottom" id="hall-of-fame"></div>
     </section>
 
@@ -116,14 +113,6 @@
     <script>
         const DIFF_LABELS = { easy:"EASY", normal:"NORMAL", hard:"HARD", erect:"ERECT" };
         const hof = MODS_DATA.filter(m => m.hallOfFame);
-
-        // Stats
-        const totalMods = MODS_DATA.filter(m => !m.obsolete).length;
-        const totalSongs = MODS_DATA.filter(m => !m.obsolete).reduce((acc, m) => acc + (m.songs ? m.songs.length : 0), 0);
-        document.getElementById('stat-mods').textContent = totalMods;
-        document.getElementById('stat-songs').textContent = totalSongs;
-
-        // Hall of Fame cards
         document.getElementById('hall-of-fame').innerHTML = hof.map(m => `
             <div class="card card-small" onclick="location.href='zkp/mods/${m.id}.html'">
                 <div class="image-placeholder" style="background-image:url('zkp/${m.banner}');background-size:cover;background-position:center;"></div>
