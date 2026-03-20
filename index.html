@@ -19,7 +19,7 @@
         .site-footer { flex-shrink: 0; position: relative !important; bottom: auto !important; }
         .layout-bottom .card { animation: cardFloat 3s ease-in-out infinite; }
         /* Cards más pequeñas en PC */
-        #hall-of-fame { max-width: 70%; margin: 0 auto; }
+        /* Cards más pequeñas en PC - manejado inline */
         .layout-bottom .card:nth-child(1) { animation-delay: 0s;   }
         .layout-bottom .card:nth-child(2) { animation-delay: 0.2s; }
         .layout-bottom .card:nth-child(3) { animation-delay: 0.4s; }
@@ -81,8 +81,9 @@
         <h2>Hall of Fame</h2>
         <div id="hof-dots" style="display:flex;justify-content:center;gap:0.4rem;margin-bottom:0.8rem;margin-top:-1.5rem;"></div>
         <div style="display:flex;align-items:center;gap:0.3rem;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
             <button id="hof-prev" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.7rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&lt;</button>
-            <div class="layout-bottom" id="hall-of-fame" style="flex:1;"></div>
+            <div class="layout-bottom" id="hall-of-fame" style="width:70%;flex:none;"></div>
             <button id="hof-next" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.7rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&gt;</button>
         </div>
     </section>
