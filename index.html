@@ -40,6 +40,9 @@
         }
         .carousel-dot.active { background: var(--secondary); }
 
+        /* Cards más pequeñas */
+        .carousel-grid .card .image-placeholder { aspect-ratio: 16/7 !important; }
+
         /* Float animation */
         .carousel-grid .card { animation: cardFloat 3s ease-in-out infinite; }
         .carousel-grid .card:nth-child(1) { animation-delay: 0s; }
@@ -47,6 +50,10 @@
         .carousel-grid .card:nth-child(3) { animation-delay: 0.4s; }
         .carousel-grid .card:nth-child(4) { animation-delay: 0.6s; }
         @keyframes cardFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+        /* Fade al cambiar */
+        .carousel-grid { transition: opacity 0.2s ease; }
+        .carousel-grid.fading { opacity: 0; }
 
         @media (max-width: 768px) {
             .hero { height: auto !important; min-height: unset !important; padding: 2rem 1.2rem 2.5rem !important; overflow: hidden !important; box-sizing: border-box !important; }
@@ -162,26 +169,30 @@
         }
 
         function goTo(page) {
-            currentPage = page;
-            var start = page * perPage;
-            var items = hof.slice(start, start + perPage);
+            grid.classList.add('fading');
+            setTimeout(function() {
+                currentPage = page;
+                var start = page * perPage;
+                var items = hof.slice(start, start + perPage);
 
-            grid.innerHTML = items.map(m => `
-                <div class="card card-small" onclick="location.href='zkp/mods/${m.id}.html'">
-                    <div class="image-placeholder" style="background-image:url('zkp/${m.banner}');background-size:cover;background-position:center;"></div>
-                    <div class="card-info">
-                        <h4>${m.name} ${m.diffs.map(d => `<span class="diff-badge diff-${d}">${DIFF_LABELS[d]}</span>`).join(' ')}</h4>
+                grid.innerHTML = items.map(m => `
+                    <div class="card card-small" onclick="location.href='zkp/mods/${m.id}.html'">
+                        <div class="image-placeholder" style="background-image:url('zkp/${m.banner}');background-size:cover;background-position:center;"></div>
+                        <div class="card-info">
+                            <h4>${m.name} ${m.diffs.map(d => `<span class="diff-badge diff-${d}">${DIFF_LABELS[d]}</span>`).join(' ')}</h4>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
 
-            // Dots
-            document.querySelectorAll('.carousel-dot').forEach(function(d) {
-                d.classList.toggle('active', parseInt(d.dataset.page) === page);
-            });
+                document.querySelectorAll('.carousel-dot').forEach(function(d) {
+                    d.classList.toggle('active', parseInt(d.dataset.page) === page);
+                });
 
-            btnPrev.disabled = page === 0;
-            btnNext.disabled = page === totalPages - 1;
+                btnPrev.disabled = page === 0;
+                btnNext.disabled = page === totalPages - 1;
+
+                grid.classList.remove('fading');
+            }, 200);
         }
 
         btnPrev.addEventListener('click', function() { if (currentPage > 0) goTo(currentPage - 1); });
