@@ -40,13 +40,6 @@
             .recent-mods { height: auto !important; overflow: visible !important; }
             .carousel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
             .carousel-btn { font-size: 1.8rem !important; padding: 1rem 0.8rem !important; }
-            /* Móvil: ocultar flechas laterales y dots arriba */
-            #hof-prev, #hof-next, #hof-dots { display: none !important; }
-            /* Mostrar controles abajo */
-            #hof-mobile-controls { display: flex !important; }
-            /* Cards más grandes */
-            #hall-of-fame { max-width: 100% !important; margin: 0 !important; }
-            #hall-of-fame .image-placeholder { aspect-ratio: 16/9 !important; }
         }
     </style>
 </head>
@@ -91,13 +84,6 @@
             <button id="hof-prev" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.7rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&lt;</button>
             <div class="layout-bottom" id="hall-of-fame" style="flex:1;"></div>
             <button id="hof-next" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.4rem;padding:0.5rem 0.7rem;cursor:pointer;flex-shrink:0;box-shadow:3px 3px 0 var(--border);">&gt;</button>
-        </div>
-        <div id="hof-mobile-controls" style="display:none;flex-direction:column;align-items:center;gap:0.6rem;margin-top:0.8rem;">
-            <div style="display:flex;gap:2rem;">
-                <button id="hof-prev-m" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.8rem;padding:0.6rem 1.4rem;cursor:pointer;box-shadow:3px 3px 0 var(--border);">&lt;</button>
-                <button id="hof-next-m" style="background:var(--surface2);border:2px solid var(--border);color:var(--secondary);font-family:'VCR',monospace;font-size:1.8rem;padding:0.6rem 1.4rem;cursor:pointer;box-shadow:3px 3px 0 var(--border);">&gt;</button>
-            </div>
-            <div id="hof-dots-m" style="display:flex;gap:0.8rem;"></div>
         </div>
     </section>
 
@@ -156,30 +142,6 @@
         }
         btnPrev.addEventListener('click',function(){goTo(cur>0?cur-1:total-1);});
         btnNext.addEventListener('click',function(){goTo(cur<total-1?cur+1:0);});
-
-        // Botones móvil
-        var btnPrevM = document.getElementById('hof-prev-m');
-        var btnNextM = document.getElementById('hof-next-m');
-        var dotsElM  = document.getElementById('hof-dots-m');
-        if(btnPrevM) {
-            // Crear dots móvil
-            for(var j=0;j<total;j++){
-                var dm=document.createElement('div');
-                dm.style.cssText='width:10px;height:10px;border:2px solid #000;background:var(--surface3);cursor:pointer;transition:background 0.15s;';
-                dm.dataset.page=j;
-                dm.addEventListener('click',function(){goTo(parseInt(this.dataset.page));});
-                dotsElM.appendChild(dm);
-            }
-            btnPrevM.addEventListener('click',function(){goTo(cur>0?cur-1:total-1);});
-            btnNextM.addEventListener('click',function(){goTo(cur<total-1?cur+1:0);});
-        }
-
-        // Actualizar dots móvil también
-        var origGoTo = goTo;
-        goTo = function(page) {
-            origGoTo(page);
-            if(dotsElM) dotsElM.querySelectorAll('div').forEach(function(d,i){d.style.background=i===page?'var(--secondary)':'var(--surface3)';});
-        };
         goTo(0);
     </script>
     <script>
