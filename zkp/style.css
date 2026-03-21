@@ -29,7 +29,7 @@ body {
 }
 body.scrollable { overflow: auto; height: auto; background-color: #0a0a0f;
     background-image: radial-gradient(rgba(255,255,255,0.18) 1.5px, transparent 1.5px);
-    background-size: 2.2rem 2.2rem; animation: dotSlide 4s ease-in-out infinite; }
+    background-size: 2.2rem 2.2rem; animation: dotSlide 3s linear infinite; }
 
 body::after {
     content: ''; position: fixed; inset: 0;
@@ -290,8 +290,8 @@ body::after {
 
 /* Scrollable pages styles */
 @keyframes dotSlide {
-    0%, 100% { background-position: 0 0; }
-    40%, 60% { background-position: 2.2rem 0; }
+    0% { background-position: 0 0; }
+    100% { background-position: 2.2rem 2.2rem; }
 }
 body.scrollable .page-header h1 {
     color: var(--white); -webkit-text-stroke: 0;
