@@ -55,6 +55,7 @@
             font-size: clamp(6rem, 20vw, 12rem);
             color: #000;
             line-height: 1;
+            animation: glitch 3s infinite;
         }
 
         .err-title {
@@ -94,15 +95,57 @@
         .err-btn.secondary { background: #23232e; color: #4af1f2; border-color: #4af1f2; box-shadow: 4px 4px 0 #4af1f2; }
         .err-btn.secondary:hover { box-shadow: 6px 6px 0 #4af1f2; }
 
-        @keyframes glitch {
-            0%, 90%, 100% { transform: translate(0); }
-            91% { transform: translate(-4px, 2px); }
-            92% { transform: translate(4px, -2px); }
-            93% { transform: translate(0); }
-            95% { transform: translate(-2px, 0); }
-            96% { transform: translate(0); }
-        }
+        @keyframes glitch { 0%,100%{opacity:1;} }
     </style>
+    <script>
+    window.addEventListener('load', function(){
+        document.querySelectorAll('.err-code, .err-title').forEach(function(el) {
+            var isCode = el.classList.contains('err-code');
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;z-index:10;';
+            el.style.position = 'relative';
+            el.appendChild(canvas);
+
+            function resize() { canvas.width = el.offsetWidth; canvas.height = el.offsetHeight; }
+            resize();
+
+            function glitch() {
+                var frames = isCode ? 2 + Math.floor(Math.random()*2) : 3 + Math.floor(Math.random()*5);
+                var n = 0;
+                function tick() {
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    if(n >= frames) {
+                        setTimeout(glitch, isCode ? 2500+Math.random()*5000 : 500+Math.random()*3000);
+                        return;
+                    }
+                    var slices  = isCode ? 3+Math.floor(Math.random()*3) : 5+Math.floor(Math.random()*7);
+                    var sliceH  = canvas.height / slices;
+                    var prob    = isCode ? 0.08 : 0.5;   // ← 404 poco, título más
+                    var maxDx   = isCode ? 3 : 24;       // ← 404 poco desplazamiento
+                    ctx.fillStyle = getComputedStyle(el).color;
+                    for(var i=0;i<slices;i++){
+                        if(Math.random()<prob){
+                            var sy  = i*sliceH;
+                            var dx  = (Math.random()-0.5)*maxDx;
+                            var scx = isCode ? 0.97+Math.random()*0.06 : 0.85+Math.random()*0.3;
+                            ctx.save();
+                            ctx.beginPath(); ctx.rect(0,sy,canvas.width,sliceH+1); ctx.clip();
+                            ctx.scale(scx,1); ctx.translate(dx/scx,0);
+                            ctx.font = getComputedStyle(el).font;
+                            ctx.textAlign='center'; ctx.textBaseline='top';
+                            ctx.fillText(el.childNodes[0].textContent, canvas.width/2/scx, 0);
+                            ctx.restore();
+                        }
+                    }
+                    n++; setTimeout(tick, 20+Math.random()*30);
+                }
+                tick();
+            }
+            setTimeout(glitch, Math.random()*1000);
+        });
+    });
+    </script>
 </head>
 <body>
     <img src="error404.png" alt="" class="err-sprite">
@@ -115,35 +158,5 @@
             <a href="zkp/mods.html" class="err-btn secondary">> View Mods</a>
         </div>
     </div>
-    <script>
-    (function(){
-        var els = [document.querySelector('.err-code'), document.querySelector('.err-title')];
-        function triggerGlitch(el) {
-            if(!el) return;
-            var duration = 80 + Math.random() * 150;
-            var steps = 3 + Math.floor(Math.random() * 4);
-            var i = 0;
-            var orig = el.style.transform;
-            function step() {
-                if(i >= steps) {
-                    el.style.transform = '';
-                    el.style.filter = '';
-                    // esperar un tiempo random antes del siguiente glitch
-                    setTimeout(function(){ triggerGlitch(el); }, 1500 + Math.random() * 5000);
-                    return;
-                }
-                var tx = (Math.random() - 0.5) * 10;
-                var ty = (Math.random() - 0.5) * 4;
-                el.style.transform = 'translate('+tx+'px,'+ty+'px)';
-                el.style.filter = Math.random() > 0.5 ? 'invert(1)' : 'contrast(2)';
-                i++;
-                setTimeout(step, duration / steps);
-            }
-            step();
-        }
-        // Iniciar con delays distintos para cada elemento
-        setTimeout(function(){ triggerGlitch(els[0]); }, 500);
-        setTimeout(function(){ triggerGlitch(els[1]); }, 2000);
-    })();
-    </script>
+</body>
 </html>
