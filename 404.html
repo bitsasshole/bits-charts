@@ -55,7 +55,6 @@
             font-size: clamp(6rem, 20vw, 12rem);
             color: #000;
             line-height: 1;
-            animation: glitch 3s infinite;
         }
 
         .err-title {
@@ -95,63 +94,56 @@
         .err-btn.secondary { background: #23232e; color: #4af1f2; border-color: #4af1f2; box-shadow: 4px 4px 0 #4af1f2; }
         .err-btn.secondary:hover { box-shadow: 6px 6px 0 #4af1f2; }
 
-        .err-code, .err-title {
-            position: relative;
-        }
-
-        .err-code::before, .err-code::after,
-        .err-title::before, .err-title::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            overflow: hidden;
-        }
-
-        .err-code::before, .err-title::before {
-            color: #000;
-            animation: glitch-r 3s infinite;
-            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-        }
-
-        .err-code::after, .err-title::after {
-            color: #000;
-            animation: glitch-b 3s infinite;
-            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-        }
-
-        @keyframes glitch-r {
-            0%, 88%, 100% { transform: translate(0); opacity: 0; }
-            89% { transform: translate(-3px, 0); opacity: 1; }
-            90% { transform: translate(3px, 0); opacity: 1; }
-            91% { transform: translate(0); opacity: 0; }
-            94% { transform: translate(-2px, 0); opacity: 1; }
-            95% { transform: translate(0); opacity: 0; }
-        }
-
-        @keyframes glitch-b {
-            0%, 88%, 100% { transform: translate(0); opacity: 0; }
-            89% { transform: translate(3px, 0); opacity: 1; }
-            90% { transform: translate(-3px, 0); opacity: 1; }
-            91% { transform: translate(0); opacity: 0; }
-            94% { transform: translate(2px, 0); opacity: 1; }
-            95% { transform: translate(0); opacity: 0; }
-        }
-
         @keyframes glitch {
-            0%, 100% { transform: translate(0); }
+            0%, 90%, 100% { transform: translate(0); }
+            91% { transform: translate(-4px, 2px); }
+            92% { transform: translate(4px, -2px); }
+            93% { transform: translate(0); }
+            95% { transform: translate(-2px, 0); }
+            96% { transform: translate(0); }
         }
     </style>
 </head>
 <body>
     <img src="error404.png" alt="" class="err-sprite">
     <div class="err-content">
-        <div class="err-code" data-text="404">404</div>
-        <div class="err-title" data-text="PAGE NOT FOUND">PAGE NOT FOUND</div>
+        <div class="err-code">404</div>
+        <div class="err-title">PAGE NOT FOUND</div>
         <div class="err-sub">This page doesn't exist... yet.</div>
         <div class="err-btns">
             <a href="index.html" class="err-btn primary">> Go Home</a>
             <a href="zkp/mods.html" class="err-btn secondary">> View Mods</a>
         </div>
     </div>
-</body>
+    <script>
+    (function(){
+        var els = [document.querySelector('.err-code'), document.querySelector('.err-title')];
+        function triggerGlitch(el) {
+            if(!el) return;
+            var duration = 80 + Math.random() * 150;
+            var steps = 3 + Math.floor(Math.random() * 4);
+            var i = 0;
+            var orig = el.style.transform;
+            function step() {
+                if(i >= steps) {
+                    el.style.transform = '';
+                    el.style.filter = '';
+                    // esperar un tiempo random antes del siguiente glitch
+                    setTimeout(function(){ triggerGlitch(el); }, 1500 + Math.random() * 5000);
+                    return;
+                }
+                var tx = (Math.random() - 0.5) * 10;
+                var ty = (Math.random() - 0.5) * 4;
+                el.style.transform = 'translate('+tx+'px,'+ty+'px)';
+                el.style.filter = Math.random() > 0.5 ? 'invert(1)' : 'contrast(2)';
+                i++;
+                setTimeout(step, duration / steps);
+            }
+            step();
+        }
+        // Iniciar con delays distintos para cada elemento
+        setTimeout(function(){ triggerGlitch(els[0]); }, 500);
+        setTimeout(function(){ triggerGlitch(els[1]); }, 2000);
+    })();
+    </script>
 </html>
