@@ -44,16 +44,10 @@
             <h1>All Mods & Charts</h1>
             <p class="subtitle">The full list of my creations.</p>
         </div>
-        <div class="tabs-bar">
-            <button class="tab-btn active" onclick="switchTab('tab1', this)">Page 1</button>
-            <button class="tab-btn" onclick="switchTab('tab2', this)">Page 2</button>
-        </div>
-        <div class="tab-panel active" id="tab1">
-            <div class="mods-grid" id="grid-page1"></div>
-        </div>
-        <div class="tab-panel" id="tab2">
-            <div class="mods-grid" id="grid-page2"></div>
-        </div>
+        
+        <!-- TABS Y PANELS SE GENERAN AUTOMÁTICAMENTE -->
+        <div class="tabs-bar" id="tabs-bar"></div>
+        <div id="tab-panels"></div>
     </div>
 
     <div class="commissions-popup" id="commPopup">
@@ -105,22 +99,63 @@
             </div>`;
         }
 
-        const page1 = MODS_DATA.slice(0, 12);
-        document.getElementById('grid-page1').innerHTML =
-            cardHTML(page1[0], true) + page1.slice(1).map(m => cardHTML(m, false)).join('');
-
-        // Page 2 — resto
-        const page2 = MODS_DATA.slice(12);
-        document.getElementById('grid-page2').innerHTML =
-            cardHTML(page2[0], true) + page2.slice(1).map(m => cardHTML(m, false)).join('');
-
         function switchTab(id, btn) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             btn.classList.add('active');
         }
+
+        // ====================== PÁGINAS AUTOMÁTICAS ======================
+        const MODS_PER_PAGE = 12;
+        const numPages = Math.ceil(MODS_DATA.length / MODS_PER_PAGE);
+
+        const tabsBar = document.getElementById('tabs-bar');
+        const tabPanelsContainer = document.getElementById('tab-panels');
+
+        // Crear tabs y panels dinámicamente
+        for (let i = 1; i <= numPages; i++) {
+            // Botón de tab
+            const btn = document.createElement('button');
+            btn.className = `tab-btn ${i === 1 ? 'active' : ''}`;
+            btn.textContent = `Page ${i}`;
+            btn.onclick = () => switchTab(`tab${i}`, btn);
+            tabsBar.appendChild(btn);
+
+            // Panel
+            const panel = document.createElement('div');
+            panel.className = `tab-panel ${i === 1 ? 'active' : ''}`;
+            panel.id = `tab${i}`;
+
+            const grid = document.createElement('div');
+            grid.className = 'mods-grid';
+            grid.id = `grid-page${i}`;
+            panel.appendChild(grid);
+
+            tabPanelsContainer.appendChild(panel);
+        }
+
+        // Llenar cada grid (primera carta featured en cada página)
+        for (let i = 1; i <= numPages; i++) {
+            const start = (i - 1) * MODS_PER_PAGE;
+            const end = Math.min(start + MODS_PER_PAGE, MODS_DATA.length);
+            const pageMods = MODS_DATA.slice(start, end);
+
+            const grid = document.getElementById(`grid-page${i}`);
+            let html = '';
+
+            if (pageMods.length > 0) {
+                html += cardHTML(pageMods[0], true);
+                for (let j = 1; j < pageMods.length; j++) {
+                    html += cardHTML(pageMods[j], false);
+                }
+            }
+
+            grid.innerHTML = html;
+        }
+        // ====================== FIN PÁGINAS AUTOMÁTICAS ======================
     </script>
+
     <script>
     (function() {
         var popup = document.getElementById('commPopup'), handle = document.getElementById('popupHandle');
@@ -137,6 +172,7 @@
         document.addEventListener('mouseup', function() { drag = false; });
     })();
     </script>
+
     <script>
     // Lazy loading para background-image
     const lazyObserver = new IntersectionObserver(function(entries) {
