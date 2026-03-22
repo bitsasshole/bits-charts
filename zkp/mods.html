@@ -105,13 +105,12 @@
             </div>`;
         }
 
-        // Page 1 — primeros 11 mods (el primero es featured)
-        const page1 = MODS_DATA.slice(0, 11);
+        const page1 = MODS_DATA.slice(0, 12);
         document.getElementById('grid-page1').innerHTML =
             cardHTML(page1[0], true) + page1.slice(1).map(m => cardHTML(m, false)).join('');
 
         // Page 2 — resto
-        const page2 = MODS_DATA.slice(11);
+        const page2 = MODS_DATA.slice(12);
         document.getElementById('grid-page2').innerHTML =
             cardHTML(page2[0], true) + page2.slice(1).map(m => cardHTML(m, false)).join('');
 
