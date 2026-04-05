@@ -1,4 +1,5 @@
 const MODS_LIST = [
+    "mods/stickmin-in-2026.html",
     "mods/high-pico-mix.html",
     "mods/pico-4th-song.html",
     "mods/deux-sex-machina.html",
@@ -8,7 +9,6 @@ const MODS_LIST = [
     "mods/wheel-space.html",
     "mods/pause.html",
     "mods/ready-set-go.html",
-    "mods/stickmin-in-2026.html",
     "mods/cocoa-gf-mix.html",
     "mods/corruption-minipack.html",
     "mods/night-lights.html",
