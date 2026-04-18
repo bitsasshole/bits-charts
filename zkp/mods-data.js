@@ -1,5 +1,28 @@
 const MODS_DATA = [
     {
+        id: "playtime-26",
+        name: "Playtime 2026",
+        author: "Bit",
+        engine: "V-Slice",
+        released: "2026",
+        version: "v1.0",
+        banner: "img/mods/playtime-26.png",
+        diffs: ["normal"],
+        hallOfFame: false,
+        description: "Playime gggghghgh.<br><br>Made with V-Slice Engine.",
+        videos: [{ id: "lKF6XQUbnNQ", label: "Gameplay Preview" }],
+        songs: [
+        { num: "01", name: "Playtime 2026", diffs: ["easy","normal","hard"], bpm: 135 }],
+        downloads: [
+            { label: ">>  V-Slice",    href: "https://www.mediafire.com/file/lpd47kgxjgtkv0a/Playtime+2026+-+Bit's+Take.zip/file", style: "yell" },
+        ],
+        credits: [
+            { role: "Charter", icon: "📝", people: [{ name: "Salad0" }, { name: "Bit" }] },
+            { role: "Coder",   icon: "⚙️", people: [{ name: "Bit" }] },
+            { role: "Song",    icon: "🎵", people: [{ name: "Jooks ft. Ikawa ft. NaufalHady24" }] },
+        ],
+    },
+    {
         id: "stickmin-in-2026",
         name: "Stickmin in 2026",
         author: "Bit",
