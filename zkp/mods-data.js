@@ -10,7 +10,7 @@ const MODS_DATA = [
         diffs: ["normal"],
         hallOfFame: false,
         description: "Playime gggghghgh.<br><br>Made with V-Slice Engine.",
-        videos: [{ id: "lKF6XQUbnNQ", label: "Gameplay Preview" }],
+        videos: [{ id: "rAearYgvtZA", label: "Gameplay Preview" }],
         songs: [
         { num: "01", name: "Playtime 2026", diffs: ["easy","normal","hard"], bpm: 135 }],
         downloads: [
