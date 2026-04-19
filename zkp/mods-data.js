@@ -14,7 +14,7 @@ const MODS_DATA = [
         songs: [
         { num: "01", name: "Playtime 2026", diffs: ["easy","normal","hard"], bpm: 135 }],
         downloads: [
-            { label: ">>  V-Slice",    href: "https://www.mediafire.com/file/lpd47kgxjgtkv0a/Playtime+2026+-+Bit's+Take.zip/file", style: "yell" },
+            { label: ">>  V-Slice",    href: "https://www.mediafire.com/file/3jkk3v0ozh5w6xy/Playtime+2K26+-+Bit's+Take.zip/file", style: "yell" },
         ],
         credits: [
             { role: "Charter", icon: "📝", people: [{ name: "Salad0" }, { name: "Bit" }] },
