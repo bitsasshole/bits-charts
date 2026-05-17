@@ -8,7 +8,7 @@ const MODS_DATA = [
         released: "2026",
         version: "v1.0",
         banner: "img/mods/otis.png",
-        diffs: ["normal"],
+        diffs: ["hard"],
         description: "A chart for Otis lol i like ICE ICE ICE",
         videos: [{ id: "9qG3Xgf6XeE", label: "Gameplay Preview" }],
         songs: [{ num: "01", name: "Otis Remix", diffs: ["easy", "normal", "hard"], bpm: 130 }],
