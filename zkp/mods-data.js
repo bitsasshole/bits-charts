@@ -1,5 +1,32 @@
 const MODS_DATA = [
     {
+        id: "otis",
+        hallOfFame: true,
+        name: "Otis",
+        author: "Bit",
+        engine: "V-Slice",
+        released: "2026",
+        version: "v1.0",
+        banner: "img/mods/otis.png",
+        diffs: ["normal"],
+        description: "A chart for Otis lol i like ICE ICE ICE",
+        videos: [{ id: "9qG3Xgf6XeE", label: "Gameplay Preview" }],
+        songs: [{ num: "01", name: "Otis Remix", diffs: ["easy", "normal", "hard"], bpm: 130 }],
+        downloads: [
+            { label: ">> Google Drive", href: "https://drive.google.com/file/d/1EupEwbLeXRSr1pI01PM57msDEn2rJoaq/view", style: "btn" },
+            { label: ">> V-Slice", href: "https://www.mediafire.com/file/a91iqmvprww04xw/Otis+REM1X+-+Bit's+Take.zip/file", style: "yell" },
+        ],
+        credits: [
+            { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "Hard" }] },
+            { role: "Coder",        icon: "⚙️", people: [{ name: "Bit" }] },
+            { role: "Song",         icon: "🎵", people: [{ name: "simpie ft. blueballz" }] },
+            { role: "Pico Sprites", icon: "🖼️", people: [{ name: "Vitanlix" }] },
+            { role: "Stage / Otis Sprites", icon: "🖼️", people: [{ name: "Hydietri" }] },
+            { role: "Nene Sprites",   icon: "🖼️", people: [{ name: "eehhh idk bro", detail: "FNF Polished Team" }] },
+            { role: "Icons", icon: "🖼️", people: [{ name: "ChazbillYT" }, { name: "Tower124" }] },
+        ],
+    },
+    {
         id: "nerves-26",
         hallOfFame: false,
         name: "Nerves 2026",
@@ -13,7 +40,7 @@ const MODS_DATA = [
         videos: [{ id: "Xijpz-l2uRc", label: "Gameplay Preview" }],
         songs: [{ num: "01", name: "Nerves 2026", diffs: ["easy", "normal", "hard"], bpm: 110 }],
         downloads: [
-            { label: ">> V-Slice", href: "https://www.mediafire.com/file/wkh7mr8lpg8qynu/Nerves+2026+-+Bit's+Take.zip/file", style: "btn" },
+            { label: ">> V-Slice", href: "https://www.mediafire.com/file/wkh7mr8lpg8qynu/Nerves+2026+-+Bit's+Take.zip/file", style: "yell" },
         ],
         credits: [
             { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "hard" }] },
@@ -38,7 +65,7 @@ const MODS_DATA = [
                 { num: "02", name: "Tutorial (Pico Mix) [Extended]", diffs: ["easy", "normal", "hard"], bpm: 110 },
                 { num: "03", name: "Tutorial (Pico Mix) - Oiiai Cover", diffs: ["easy", "normal", "hard"], bpm: 110 }],
         downloads: [
-            { label: ">> V-Slice", href: "https://www.mediafire.com/file/d2acpf9oiyso2mi/Tutorial_%2528Pico_MIX%2529_-_Bit%2527s_Take_-_V-Slice_Port.zip/file", style: "btn" },
+            { label: ">> V-Slice", href: "https://www.mediafire.com/file/d2acpf9oiyso2mi/Tutorial_%2528Pico_MIX%2529_-_Bit%2527s_Take_-_V-Slice_Port.zip/file", style: "yell" },
         ],
         credits: [
             { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "hard" }] },
@@ -430,29 +457,6 @@ const MODS_DATA = [
             { role: "Song",    icon: "🎵", people: [{ name: "Ezzy" }] },
             { role: "Concept", icon: "🖼️", people: [{ name: "innercomer" }] },
             { role: "Stage",   icon: "🖼️", people: [{ name: "SebastianPR" }] },
-        ],
-    },
-    {
-        id: "otis",
-        hallOfFame: true,
-        name: "Otis",
-        author: "Bit",
-        engine: "P-Slice (Psych)",
-        released: "2026",
-        version: "v1.0",
-        banner: "img/mods/otis.png",
-        diffs: ["normal"],
-        description: "A chart for Otis.<br><br>Made with P-Slice Engine.",
-        videos: [{ id: "AWUM0mOj-2U", label: "Gameplay Preview" }],
-        songs: [{ num: "01", name: "Otis Remix", diffs: ["normal"], bpm: 130 }],
-        downloads: [
-            { label: ">> Google Drive", href: "https://drive.google.com/file/d/1EupEwbLeXRSr1pI01PM57msDEn2rJoaq/view", style: "btn" },
-        ],
-        credits: [
-            { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "Normal" }] },
-            { role: "Coder",        icon: "⚙️", people: [{ name: "Bit" }] },
-            { role: "Song",         icon: "🎵", people: [{ name: "simpie ft. blueballz" }] },
-            { role: "Pico Sprites", icon: "🖼️", people: [{ name: "Vitanlix" }] },
         ],
     },
     {
