@@ -1,4 +1,6 @@
 const MODS_LIST = [
+    "mods/cheated.html",
+    "mods/tutorial-pico-mix.html",
     "mods/playtime-26.html",
     "mods/stickmin-in-2026.html",
     "mods/high-pico-mix.html",
@@ -14,7 +16,6 @@ const MODS_LIST = [
     "mods/corruption-minipack.html",
     "mods/night-lights.html",
     "mods/desolation.html",
-    "mods/tutorial-pico-mix.html",
     "mods/otis.html",
     "mods/silly-monster.html",
     "mods/you-cant-run-2025.html",
