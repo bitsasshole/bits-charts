@@ -1,5 +1,28 @@
 const MODS_DATA = [
     {
+        id: "cheated",
+        hallOfFame: true,
+        name: "Cheated",
+        author: "Bit",
+        engine: "V-Slice",
+        released: "2026",
+        version: "v1.0",
+        banner: "img/mods/cheated.png",
+        diffs: ["hard"],
+        description: ". . .",
+        videos: [{ id: "zWOwYi5Sjp0", label: "Gameplay Preview" }],
+        songs: [{ num: "01", name: "Cheated", diffs: ["easy", "normal", "hard"], bpm: 175 }],
+        downloads: [
+            { label: ">> V-Slice", href: "https://www.mediafire.com/file/sfdh95lnoodvkee/騙された.zip/file", style: "yell" },
+        ],
+        credits: [
+            { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "Hard" }] },
+            { role: "Coder",        icon: "⚙️", people: [{ name: "Bit" }] },
+            { role: "Song",         icon: "🎵", people: [{ name: "Samiiwave" }] },
+            { role: "Assets", icon: "🖼️", people: [{ name: "BAnims", detail: "Co-Founder - Senior Art Director #1"}, { name: "Beffington", detail: "Senior Art Director #2" }, { name: "Waker608", detail: "Senior Art Director #3"}] },
+        ],
+    },
+    {
         id: "otis",
         hallOfFame: true,
         name: "Otis",
