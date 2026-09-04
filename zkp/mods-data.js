@@ -13,7 +13,7 @@ const MODS_DATA = [
         videos: [{ id: "zWOwYi5Sjp0", label: "Gameplay Preview" }],
         songs: [{ num: "01", name: "Cheated", diffs: ["easy", "normal", "hard"], bpm: 175 }],
         downloads: [
-            { label: ">> V-Slice", href: "https://www.mediafire.com/file/sfdh95lnoodvkee/騙された.zip/file", style: "yell" },
+            { label: ">> V-Slice", href: "https://drive.google.com/file/d/1EupEwbLeXRSr1pI01PM57msDEn2rJoaq/view", style: "yell" },
         ],
         credits: [
             { role: "Charter",      icon: "📝", people: [{ name: "Bit", detail: "Hard" }] },
